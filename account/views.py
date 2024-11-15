@@ -23,6 +23,6 @@ def user_login(request):
             else:
                 return HttpResponse('Invalid Login!')
             
-        else:
-            form = LoginForm()
+    else:
+        form = LoginForm()
         return render(request, 'account/login.html', {'form':form})
