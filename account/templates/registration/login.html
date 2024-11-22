@@ -1,4 +1,4 @@
-{% extends 'templates/base.tml' %}
+{% extends 'base.html' %}
 {% block title %}Log in{% endblock %}
 
 {% block content %}
@@ -12,10 +12,13 @@
    <p>Please use this form to login</p>
 {% endif %}
 <form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" value="{{ next }}" name="next">
     <p><input type="submit" value="log in"></p>
+    {% csrf_token %}
 </form>
+<p>Forgotten your password?
+    <a href="{% url 'password_reset' %}">Reset Here</a>
+</p>
 
 {% endblock %}

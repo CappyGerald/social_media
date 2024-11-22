@@ -1,9 +1,10 @@
-{% extends 'templates/base.html' %}
+{% extends 'base.html' %}
 {% block title %}Logged out {% endblock %}
 
-{% block tilte %}
+{% block content %}
 <h1>Logged out</h1>
 <p>You have successfully logged out.
 </p>
-<p> Want to Log in again? Do so here<a href="{% url 'login' %}">Log In</a>
+<p> Want to Log in again? Do so here<a href="{% url 'login' %}"> Log In</a>
 </p>
+{% endblock %}
