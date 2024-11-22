@@ -127,3 +127,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+
+# Transfer protool- Sending email vid stdout
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBakcend'
