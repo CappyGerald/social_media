@@ -23,7 +23,7 @@ class UserRegistrationForm(forms.ModelForm):
 
     # checking if the passwords match
     
-    def check_clean_password2(self):
+    def clean_password2(self):
         cd = self.clean_data
         if cd['password'] != cd['password2']:
             raise forms.ValidationError("passwords Don't match!")
