@@ -19,7 +19,7 @@ class UserRegistrationForm(forms.ModelForm):
     )
     class Meta:
         model = get_user_model()
-        fields = ['username', 'first-name', 'email']
+        fields = ['username', 'first_name', 'email']
 
     # checking if the passwords match
     
