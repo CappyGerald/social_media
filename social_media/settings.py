@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from decouple import Config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -131,3 +132,8 @@ LOGOUT_URL = 'logout'
 # Transfer protool- Sending email vid stdout
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBakcend'
+
+# configurations for media files
+
+MEDIA_URL = '/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
