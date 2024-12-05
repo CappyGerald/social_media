@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 #from django.contrib.auth import login, authenticate
 from .forms import LoginForm, UserRegistrationForm, ProfileForm, UserEditForm, ProfileEditForm
 from .models import Profile
@@ -36,7 +36,7 @@ def edit(request):
                                  )
         profile_form = ProfileEditForm(
             instance=request.user.profile,
-            data=request.POST.
+            data=request.POST,
             files = request.FILES
         )
         if user_form.is_valid() and profile_form.is_valid():
@@ -46,6 +46,4 @@ def edit(request):
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
     return render(request, 
-                  'account/edit_form.html',
-                    {'user_form': user_form,
-                     'profile_form': profile_form})
+                  'account/edit_form.html', {'user_form': user_form,'profile_form': profile_form})

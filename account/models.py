@@ -12,4 +12,4 @@ class Profile(models.Model):
     )
 
     def __str__(self):
-        return  f" profile of {self.user.uername}"
+        return  f" profile of {self.user.username}"
