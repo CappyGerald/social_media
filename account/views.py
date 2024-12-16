@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from .forms import LoginForm, UserRegistrationForm, ProfileForm, UserEditForm, ProfileEditForm
 from .models import Profile
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 
@@ -42,8 +43,12 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Profile updated successfully!')
+        else:
+            messages.error(request, "There was a problem updating your profile")
     else:
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
+        
     return render(request, 
                   'account/edit_form.html', {'user_form': user_form,'profile_form': profile_form})
