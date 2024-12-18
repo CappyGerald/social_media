@@ -22,9 +22,11 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('account.urls')),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 
-# adding static helper function to serve media files  with django development server during developmwnt
+# adding static helper function to serve media files  with 
+# django development server during developmwnt
 
 if settings.DEBUG:
     urlpatterns += static(
